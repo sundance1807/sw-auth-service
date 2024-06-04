@@ -1,0 +1,18 @@
+spring:
+  application:
+    name: sw-auth-service
+  datasource:
+    url: jdbc:postgresql://localhost:8080/postgres
+    username: sw-auth-service-admin
+    password: EK%gN`6`={X?2^6C/#pAy'=
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    show-sql: false
+    database: postgresql
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+  security:
+    jwt:
+      secret: m6pG:7)jalI2Ig`ZpU5Q^1`
+      expirationHours: 24
