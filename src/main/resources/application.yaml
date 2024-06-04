@@ -2,13 +2,13 @@ spring:
   application:
     name: sw-auth-service
   datasource:
-    url: jdbc:postgresql://localhost:8080/postgres
+    url: jdbc:postgresql://localhost:5432/postgres
     username: sw-auth-service-admin
-    password: EK%gN`6`={X?2^6C/#pAy'=
+    password: xNS893ntp1Tx918Y49y
     driver-class-name: org.postgresql.Driver
   jpa:
     hibernate:
-      ddl-auto: validate
+      ddl-auto: create
     show-sql: false
     database: postgresql
     database-platform: org.hibernate.dialect.PostgreSQLDialect
