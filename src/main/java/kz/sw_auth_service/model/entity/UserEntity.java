@@ -26,5 +26,5 @@ public class UserEntity extends BaseEntity {
     private String lastName;
     @Enumerated(EnumType.STRING)
     @Column(nullable = false, length = 100)
-    private Role role;
+    private Role role = Role.GUEST;
 }
