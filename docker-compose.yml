@@ -1,0 +1,41 @@
+version: '3.8'
+
+services:
+  sw-auth-service:
+    build: .
+    image: sw-auth-service:latest
+    container_name: service
+    environment:
+      DB_URL: jdbc:postgresql://sw-auth-service-db:5432/postgres
+      DB_HOST: sw-auth-service-db
+      DB_PORT: 5432
+      DB_NAME: postgres
+      DB_USER: sw-auth-service-admin
+      DB_PASS: xNS893ntp1Tx918Y49y
+    ports:
+      - "8080:8080"
+    depends_on:
+      - sw-auth-service-db
+    networks:
+      - sw-auth-service-network
+
+  sw-auth-service-db:
+    image: postgres:15
+    container_name: db
+    environment:
+      POSTGRES_DB: postgres
+      POSTGRES_USER: sw-auth-service-admin
+      POSTGRES_PASSWORD: xNS893ntp1Tx918Y49y
+    ports:
+      - "5432:5432"
+    volumes:
+      - sw-auth-service-db-data:/var/lib/postgresql/data
+    networks:
+      - sw-auth-service-network
+
+networks:
+  sw-auth-service-network:
+    driver: bridge
+
+volumes:
+  sw-auth-service-db-data:
